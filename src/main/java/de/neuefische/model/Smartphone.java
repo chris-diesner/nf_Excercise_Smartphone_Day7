@@ -63,6 +63,8 @@ public class Smartphone extends Contact implements Radio, GPS{
     public Smartphone() {
     }
 
+
+
     @Override
     public String toString() {
         return "Smartphone{" +
