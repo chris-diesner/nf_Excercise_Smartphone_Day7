@@ -17,6 +17,7 @@ Erstelle eine Klasse Smartphone, die beide Interfaces implementiert und folgende
 */
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Smartphone extends Contact implements Radio, GPS{
     private String sModell;
@@ -61,6 +62,25 @@ public class Smartphone extends Contact implements Radio, GPS{
     }
 
     public Smartphone() {
+    }
+
+    public void addContact(Contact contact) {
+        Contact[] addNewContact = Arrays.copyOf(allContacts, allContacts.length + 1);
+        addNewContact[allContacts.length] = contact;
+        this.allContacts = addNewContact;
+    }
+
+    public Contact getContactByIndex(int i) {
+        return allContacts[i];
+    }
+
+    public Contact getContactByName(String name) {
+        for (Contact contact : allContacts) {
+            if (Objects.equals(contact.getsName(), name)) {
+                return contact;
+            }
+        }
+        return null;
     }
 
 
